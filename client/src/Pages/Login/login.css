@@ -1,0 +1,145 @@
+main {
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+
+.background-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url("../../Assets/Images/emu.jpeg");
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 250px;
+}
+
+.circle img {
+  position: relative;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.container p {
+  position: relative;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.input-group {
+  position: absolute;
+  margin-top: 150px;
+}
+
+.input {
+  border: solid 1.5px #9e9e9e;
+  border-radius: 1rem;
+  background-color: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #000000;
+  transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.user-label {
+  position: absolute;
+  margin-top: -4px;
+  font-size: 0.7rem;
+  left: 15px;
+  color: #8d8484;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Roboto", sans-serif;
+}
+
+.input-group2 {
+  position: absolute;
+  margin-top: 205px;
+}
+
+.input {
+  border: solid 1.5px #9e9e9e;
+  border-radius: 1rem;
+  background-color: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #000000;
+  transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Roboto", sans-serif;
+}
+
+.user-label2 {
+  position: absolute;
+  margin-top: -4px;
+  font-size: 0.7rem;
+  left: 15px;
+  color: #8d8484;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Roboto", sans-serif;
+}
+
+.input:focus,
+input:valid {
+  outline: none;
+  border: 1.5px solid #244182;
+}
+
+.input:focus ~ label,
+input:valid ~ label {
+  transform: translateY(-70%) scale(0.8);
+  background-color: transparent;
+  padding: 0 0.2em;
+  color: #fff;
+}
+
+.container button {
+  position: absolute;
+  background-color: #244182;
+  padding: 0.5rem;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 1rem;
+  margin-top: 272px;
+  width: 10%;
+}
+
+.container .forgot {
+  position: absolute;
+  margin-top: 300px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+}
+
+.container .new {
+  position: absolute;
+  margin-top: 450px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+}
+
+.container a {
+  color: #fff;
+  text-decoration: none;
+}
