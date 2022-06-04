@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       {/* Logo */}
-      <div className="logo">Hello, {userName} </div>
+      <div className="logo">Hello {userName} </div>
       <ul className="nav-links">
         <input type="checkbox" id="checkbox_toggle" />
         <label htmlFor="checkbox_toggle" className="hamburger">
