@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import useAdmin from "../../Hooks/useAdmin";
-import './form.css'
+import "./form.css";
 const Form = () => {
-    const [name, setName] = useState()
-    const [lastname, setLastName] = useState()
-    const [password, setPassword] = useState()
+  const [name, setName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [password, setPassword] = useState("");
 
-    const {registerAdvisor, registerStudent} = useAdmin()
+  const { registerAdvisor, registerStudent } = useAdmin();
 
-    const handleAdvisor = (e) => { 
-        e.preventDefault()
-        registerAdvisor(name, lastname, password)
-    }
+  const handleAdvisor = (e) => {
+    e.preventDefault();
+    registerAdvisor(name, lastname, password);
+    setName("");
+    setLastName("");
+    setPassword("");
+  };
 
-    const handleStudent = (e) => { 
-        e.preventDefault()
-        registerStudent(name, lastname, password)
-
-    }
+  const handleStudent = (e) => {
+    e.preventDefault();
+    registerStudent(name, lastname, password);
+    setName("");
+    setLastName("");
+    setPassword("");
+  };
   return (
     <div className="form-container">
       <form>

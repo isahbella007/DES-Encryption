@@ -1,13 +1,26 @@
-const crypto = require('crypto')
-var secret_key = "I am the secret key"
-var secret_iv = "smslt"
-var encryptionMethod = 'des-ecb'
+// import CryptoJS from "crypto-js";
+const CryptoJS = require('crypto-js')
 
-var key = crypto.createHash('sha512').update(secret_key, 'utf-8').digest('hex').substring(0,32)
+const desEncrypt = (message, seed) => {
+  const SHA512 = CryptoJS.SHA512(seed).toString();
+  const key = SHA512.substring(0, 8);
+  const iv = SHA512.substring(SHA512.length - 8);
+  const keyHex = CryptoJS.enc.Utf8.parse(key);
+  const ivHex = CryptoJS.enc.Hex.parse(CryptoJS.enc.Utf8.parse(iv).toString(CryptoJS.enc.Hex));
+  const encrypted = CryptoJS.DES.encrypt(message, keyHex, { iv: ivHex });
+  const result = encrypted.toString();
+  return result;
+};
 
-var iv = crypto.createHash('sha512').update(secret_key, 'utf-8').digest('hex').substring(0,16)
+const desDecrypt = (message, seed) => {
+  const SHA512 = CryptoJS.SHA512(seed).toString();
+  const key = SHA512.substring(0, 8);
+  const iv = SHA512.substring(SHA512.length - 8);
+  const keyHex = CryptoJS.enc.Utf8.parse(key);
+  const ivHex = CryptoJS.enc.Hex.parse(CryptoJS.enc.Utf8.parse(iv).toString(CryptoJS.enc.Hex));
+  const decrypted = CryptoJS.DES.decrypt(message, keyHex, { iv: ivHex });
+  const result = decrypted.toString(CryptoJS.enc.Utf8);
+  return result;
+};
 
-
-// const encrypt_string(plain_text, encryptionMethod, secret, iv){ 
-
-// }
+module.exports = { desDecrypt, desEncrypt}

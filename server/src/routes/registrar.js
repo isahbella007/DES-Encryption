@@ -1,6 +1,8 @@
 const express = require("express");
+const { desDecrypt } = require("../des.js");
 const db_connection = require("../config/connection.js");
 const registrar = express.Router();
+let obj;
 
 registrar.get("/", (req, res) => {
   db_connection.query(
@@ -10,7 +12,14 @@ registrar.get("/", (req, res) => {
         console.log(error);
       }
       if (rows) {
-        res.send(rows);
+        const names = rows.map((x) => {
+          return {
+            ...x,
+            name: desDecrypt(x.name, process.env.ENC_SECRET),
+            lastname: desDecrypt(x.lastname, process.env.ENC_SECRET),
+          };
+        });
+        res.send(names);
       }
     }
   );
@@ -24,7 +33,14 @@ registrar.get("/getstudent", (req, res) => {
         console.log(error);
       }
       if (rows) {
-        res.send(rows);
+        const names = rows.map((x) => {
+          return {
+            ...x,
+            name: desDecrypt(x.name, process.env.ENC_SECRET),
+            lastname: desDecrypt(x.lastname, process.env.ENC_SECRET),
+          };
+        });
+        res.send(names);
       }
     }
   );
@@ -33,21 +49,21 @@ registrar.get("/getstudent", (req, res) => {
 registrar.post("/assign", (req, res) => {
   const advisor_id = req.body.advisor_id;
   const student_id = req.body.student_id;
-
-//   sign the ids with sha 512 and store DES encrypted.
-
-  db_connection.query(
-    "INSERT INTO advisors_student (advisor_id, student_id) VALUES (?,?) ",
-    [advisor_id, student_id],
-    (error, row) => {
-      if (error) {
-        console.log(error);
+  for (let i = 0; i < student_id.length; i++) {
+    db_connection.query(
+      "INSERT INTO advisors_student (advisor_id, student_id) VALUES (?,?) ",
+      [advisor_id, student_id[i]],
+      (error, row) => {
+        if (error) {
+          console.log(error);
+        }
+        if (row) {
+          res.send(row)
+          console.log(row);
+        }
       }
-      if (row) {
-        console.log(row);
-        res.send("Advisor assigned to student")
-      }
-    }
-  );
+    );
+  }
+  //   sign the ids with sha 512 and store DES encrypted
 });
 module.exports = registrar;

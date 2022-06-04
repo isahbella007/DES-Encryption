@@ -17,6 +17,7 @@ const Login = () => {
     }).then((response) => { 
       console.log(response.data)
       localStorage.setItem("name", response.data.name)
+      localStorage.setItem("id", response.data.id)
       setRole(response.data.role)
     }).catch((error) => { 
       console.log(error)
