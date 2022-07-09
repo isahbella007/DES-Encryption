@@ -1,7 +1,7 @@
-About the Program: 
+###About the Program: 
  The project concerns development of “University Student Registration System” with Student, Academic advisor, Registrar, and Sysadmin actors. Access to the system is by user name and password. Transactions issued by users are digitally signed by RSA-SHA512  and kept DES-encrypted
 
-**#HOW TO RUN THE PROGRAM. **
+### HOW TO RUN THE PROGRAM. 
 
 Install node and xampp
 Open the client folder in terminal/cmd and type 'npm i'
@@ -9,7 +9,7 @@ Do the same for the server folder.
 
 
 
-**# The DATABASE**
+### The DATABASE
 Start the xampp app, start apache and MySQL, click on MySQL 'Admin'
 Create a database 'term_project' ad twwo tables: users and advsiors_student
 
