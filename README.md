@@ -1,5 +1,5 @@
-###About the Program: 
- The project concerns development of “University Student Registration System” with Student, Academic advisor, Registrar, and Sysadmin actors. Access to the system is by user name and password. Transactions issued by users are digitally signed by RSA-SHA512  and kept DES-encrypted
+### About the Program. 
+The project concerns development of “University Student Registration System” with Student, Academic advisor, Registrar, and Sysadmin actors. Access to the system is by user name and password. Transactions issued by users are digitally signed by RSA-SHA512  and kept DES-encrypted
 
 ### HOW TO RUN THE PROGRAM. 
 
